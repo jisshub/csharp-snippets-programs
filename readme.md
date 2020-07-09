@@ -31,7 +31,7 @@ const float val = 3.14f;
 
 ## primitive types
 
-![image](.\screenshots\Screenshot-1.png 'image')
+![image](./screenshots/Screenshot-1.png 'image')
 
 
 ## demo
