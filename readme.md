@@ -59,6 +59,80 @@ const float val = 3.14f;
             Console.WriteLine(status);
         }
 ```
+## TypeConversion
+
+```C#
+ static void Main(string[] args)
+        {
+            /* Convert int -> byte */
+            int x = 10;
+            /* casting int value to byte, since byte range is less than int */
+            byte y = (byte) x;
+            Console.WriteLine(y + " is a " +y.GetType() + " type");
+
+            /* byte -> int*/
+            byte num = 100;
+            int num1 = num;
+            Console.WriteLine(num1 + " is an " + num1.GetType() + " type") ;
+
+            /* string -> int, Parse() */
+            string username = "5670";
+            int username2 = int.Parse(username);
+            Console.WriteLine(username2 + " is a " + username2.GetType() + " type");
+
+            /* int -> string, ToString() */
+            int num3 = 5000;
+            string num4 = num3.ToString();
+            Console.WriteLine(num4 + " is a " + num4.GetType() + " type");
+        }
+```
+---
+
+## Operators
+
+```C#
+ static void Main(string[] args)
+        {
+            int num1 = 70;
+            int num2 = 60;
+            int num3 = 100;
+
+            // >, <, &&
+            if(num1 > num2 && num3 < num1)
+            {
+                Console.WriteLine(num1 + "greater");
+            }
+            else if(num2 > num3)
+            {
+                Console.WriteLine(num2 + "greater");
+            }
+            else
+            {
+                Console.WriteLine(num3 + " greater");
+            }
+
+            // equals
+            if(num2 == num3)
+            {
+                Console.WriteLine(num2 + " equals " + num3);
+            }
+           
+            // not equal
+            if(num1 != num3)
+            {
+                Console.WriteLine(num1 + " not equals " + num3);
+            }
+
+            // not operatos
+            Console.WriteLine((!(num3 >= 100)));
+
+            // OR operartos
+            Console.WriteLine((num1 == num3 || num2 <= num3));
+        }
+    
+```
+---
+
 
 
 
