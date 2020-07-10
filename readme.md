@@ -133,7 +133,172 @@ const float val = 3.14f;
 ```
 ---
 
+## Classes
 
+```C#
+using System;
+
+namespace Classes
+{
+    // create a class
+    public class FullName
+    {
+        // define properties
+        public string firstName;
+        public string lastName;
+        
+        // define a method 
+        public void getName()
+        {
+            Console.WriteLine("My name is " + firstName + " " + lastName);
+        }
+    }
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            // instantiation of object of FullName class - assign values to propreties
+            var obj1 = new FullName()
+            {
+                firstName = "Jissmon",
+                lastName = "Jose"
+            };
+            // invoke the method using objcet
+            obj1.getName();
+        }
+    }
+}
+
+```
+- object creation - invoking object methods- assign properties values are done in Main() method.
+
+- when v have an pplication -it might have diffrent number of classes - we dont out all classes in one file- ibnstead create spearte files .cs file for each such claless.
+
+**Program.cs**
+
+```C#
+using Classes.Math;
+using System;
+using System.Net.Http.Headers;
+
+namespace Classes
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+           // instantiation of object of FullName class - assign values to each property
+            var obj1 = new FullName()
+            {
+                firstName = "Jissmon",
+                lastName = "Jose"
+            };
+            // invoke the method using objcet
+            obj1.GetName();
+
+            // access Calculator class and associated methods
+            var calc = new Calculator();
+            var result = calc.Add(40, 50);
+            Console.WriteLine(result);
+            Console.WriteLine(calc.Divide(40, 3));
+            
+        }
+
+    }
+}
+
+```
+
+**FullName.cs**
+
+```C#
+using System;
+
+namespace Classes
+{
+    public class FullName
+    {
+        // define properties
+        public string firstName;
+        public string lastName;
+
+        // define a method 
+        public void GetName()
+        {
+            Console.WriteLine("My name is " + firstName + " " + lastName);
+        }
+    }
+}
+
+```
+
+-- Here this FullName is defined in other class file - but it is instantiated and it's methods are 
+invoked in Program.cs file.
+
+---
+
+## Arrays in C#
+
+**arrayOne.cs**
+
+```C#
+ public class ArraysOne
+    {
+        // initilize an array of numbers
+        public int[] numbers ={ 10, 20, 30 };
+        // initialize an array of string,
+        public string[] names = { "jissmon", "justin", "george" };
+	//  intialize a float array
+        public float[] decimals = {10.2F, 33.11F, 55.66F};
+        
+	public void getNumbers()
+        {
+            // usinf normal for loop
+            for (int i =0; i < numbers.Length; i++ )
+            {
+                Console.WriteLine(numbers[i]);
+            }
+        }
+
+        public void getNames()
+        {
+	    // using foreach 
+            foreach (string element in names)
+            {
+                Console.WriteLine($"Name: {element}");
+            }
+        }
+
+	public void getDecimals()
+        {
+            foreach(float nums in decimals)
+            {
+                Console.WriteLine($"Value: {nums}");
+            }
+        }
+
+    }
+```
+
+- Next access the class from Programs.cs file - instantiate an object - call methods.
+
+
+**Program.cs**
+```C#
+
+    class Program
+    {
+        static void Main(string[] args)
+        {
+  // access arrayOne class
+            var arr1 = new ArraysOne();
+            arr1.getNumbers();
+            arr1.getNames();
+            arr1.getDecimals();
+
+	}
+     }
+```
 
 
 
