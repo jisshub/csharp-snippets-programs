@@ -5,8 +5,8 @@
 - .NET is a framework for building applications on windows
 
 - CLR(COMMON LANGUAGE RUNTIME)
- - job is to translate IL(Intermediate Language) code to machine code at runtime. that process called JIT(Just in Time Compilation)
- - thus v can run C# application in another machines. ie. machine independent. but that machine should have CLR.
+- job is to translate IL(Intermediate Language) code to machine code at runtime. that process called JIT(Just in Time Compilation)
+- thus v can run C# application in another machines. ie. machine independent. but that machine should have CLR.
 
 ## our first C# application
 
@@ -16,11 +16,18 @@
 - So as your application grows in size, you may want to group the related classes into various namespaces for better maintainability.
 - As the number of classes and namespaces even grow further, you may want to physically separate related namespaces into separate assemblies.
 - An assembly is a file (DLL or EXE) that contains one or more namespaces and classes.
-- An EXE file represents a program that can be executed. 
+- An EXE file represents a program that can be executed.
 - A DLL is a file that includes code that can be re-used across different programs.
-  
 
 ## Variables and Constant
+
+- declaring a variable, use _var_
+- _var_ is mutable
+
+```C#
+var name = "jiss";
+var num = 60;
+```
 
 - constants r immuatble in C#
 - declaring constant
@@ -33,13 +40,12 @@ const float val = 3.14f;
 
 ![image](./screenshots/Screenshot-1.png 'image')
 
-
 ## demo
 
 ```C#
  static void Main(string[] args)
         {
-            
+
             byte number = 10;
             Console.WriteLine(number);
 
@@ -59,6 +65,7 @@ const float val = 3.14f;
             Console.WriteLine(status);
         }
 ```
+
 ## TypeConversion
 
 ```C#
@@ -86,6 +93,7 @@ const float val = 3.14f;
             Console.WriteLine(num4 + " is a " + num4.GetType() + " type");
         }
 ```
+
 ---
 
 ## Operators
@@ -116,7 +124,7 @@ const float val = 3.14f;
             {
                 Console.WriteLine(num2 + " equals " + num3);
             }
-           
+
             // not equal
             if(num1 != num3)
             {
@@ -129,8 +137,9 @@ const float val = 3.14f;
             // OR operartos
             Console.WriteLine((num1 == num3 || num2 <= num3));
         }
-    
+
 ```
+
 ---
 
 ## Classes
@@ -146,8 +155,8 @@ namespace Classes
         // define properties
         public string firstName;
         public string lastName;
-        
-        // define a method 
+
+        // define a method
         public void getName()
         {
             Console.WriteLine("My name is " + firstName + " " + lastName);
@@ -170,6 +179,7 @@ namespace Classes
 }
 
 ```
+
 - object creation - invoking object methods- assign properties values are done in Main() method.
 
 - when v have an pplication -it might have diffrent number of classes - we dont out all classes in one file- ibnstead create spearte files .cs file for each such claless.
@@ -201,7 +211,7 @@ namespace Classes
             var result = calc.Add(40, 50);
             Console.WriteLine(result);
             Console.WriteLine(calc.Divide(40, 3));
-            
+
         }
 
     }
@@ -222,7 +232,7 @@ namespace Classes
         public string firstName;
         public string lastName;
 
-        // define a method 
+        // define a method
         public void GetName()
         {
             Console.WriteLine("My name is " + firstName + " " + lastName);
@@ -232,12 +242,12 @@ namespace Classes
 
 ```
 
--- Here this FullName is defined in other class file - but it is instantiated and it's methods are 
+-- Here this FullName is defined in other class file - but it is instantiated and it's methods are
 invoked in Program.cs file.
 
 ---
 
-## Arrays in C#
+## Arrays in C
 
 **arrayOne.cs**
 
@@ -250,7 +260,7 @@ invoked in Program.cs file.
         public string[] names = { "jissmon", "justin", "george" };
 	//  intialize a float array
         public float[] decimals = {10.2F, 33.11F, 55.66F};
-        
+
 	public void getNumbers()
         {
             // usinf normal for loop
@@ -262,7 +272,7 @@ invoked in Program.cs file.
 
         public void getNames()
         {
-	    // using foreach 
+	    // using foreach
             foreach (string element in names)
             {
                 Console.WriteLine($"Name: {element}");
@@ -282,8 +292,8 @@ invoked in Program.cs file.
 
 - Next access the class from Programs.cs file - instantiate an object - call methods.
 
-
 **Program.cs**
+
 ```C#
 
     class Program
@@ -300,6 +310,68 @@ invoked in Program.cs file.
      }
 ```
 
+# Strings in CSharp
 
+**StringsCls.css**
 
+```C#
 
+namespace Classes.Computers
+{
+    class StringsCls
+    {
+        public string firstName = "jissmon";
+        public string lastName = "jose";
+
+        public string ConcatenateBoth()
+        {
+            // call Concat method from string class.
+            var fullName = string.Concat(firstName, " ", lastName);
+            return fullName;
+        }
+        public string FormatName()
+        {
+            // use Format to return value
+            var fullName = string.Format("My Name is {0} {1}", firstName, lastName);
+            // {0}- firstName
+            // {1} - lastName
+            return fullName;
+        }
+
+        public string JoinNames()
+        {
+            // inittialze an array of strings
+            var names = new string[] { "jissmon", "ajith", "george" };
+            // invoke Join() - pass separator as first argument, array names as sec arg.
+            return string.Join("-", names);
+        }
+          public string OrderText()
+        {
+            // use verbatim string to show text in multiple lines, can use this instead of new line character \n,
+            // use, @ special character as verbatim identifier.
+            var text = @"hi jisssmon,
+            this is called visual studio ide.
+            you can do your work coding here.";
+
+            return text;
+        }
+    }
+}
+
+```
+
+**Program.cs**
+
+```C#
+    // access StringsCls()
+    // invoke Formatnames, joinnames, verbatim  method
+    var obj = new StringsCls();
+    var concateText = obj.ConcatenateBoth();
+    var formattedName = obj.FormatName();
+    var joinedName = obj.JoinNames();
+    var verbatimText = obj.OrderText();
+    Console.WriteLine(concateText);
+    Console.WriteLine(formattedName);
+    Console.WriteLine(joinedName);
+    Console.WriteLine(verbatimText);
+```
