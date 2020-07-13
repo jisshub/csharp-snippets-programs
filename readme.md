@@ -375,3 +375,105 @@ namespace Classes.Computers
     Console.WriteLine(joinedName);
     Console.WriteLine(verbatimText);
 ```
+
+---
+
+# Enums
+
+- Use enum when v have number of related constants.
+
+- To define an enumeration type, use the enum keyword and specify the names of enum members:
+
+- basic dsefinition:
+
+```C#
+enum ErrorCode : ushort
+{
+    None = 0,
+    Unknown = 1,
+    ConnectionLost = 100,
+    OutlierReading = 200
+}
+```
+
+to access any enum member from enum,
+
+```C#
+ErrorCode.None
+ErrorCode.Unknown
+```
+
+- By default, the associated constant values of enum members are of type _int_. they start with zero and increase by one following the definition text order.
+
+- You cannot define a method inside the definition of an enum. To add, create an extension method.
+
+## Enums Demo
+
+```C#
+
+namespace Enums
+{
+    // enum type definition
+    public enum ShippingMethod{
+        // ShippingMethod - ia an enum type
+        // define enum members and their constant values
+        RegularAirMail = 50,
+        RegisterAirMail = 150,
+        Express = 300
+    }
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            // access the enum member
+            Console.WriteLine(ShippingMethod.RegisterAirMail);
+
+            // to get integer value asscoiate with that memeber , cast enum type to int type.
+            var getRegisterAirMail = (int)ShippingMethod.RegisterAirMail;
+
+            Console.WriteLine(getRegisterAirMail);
+
+            // suppose got a value from client, access the enum member associated with that value
+            var getValue = 300;
+            // so cast this value to ShippingMethod enum type
+            var castToEnum = (ShippingMethod)getValue;
+            Console.WriteLine(castToEnum);
+
+            // Example
+            var getExpress = ShippingMethod.Express;
+            var getExpval = (int)getExpress;
+            Console.WriteLine(getExpval);
+
+        }
+    }
+}
+
+
+```
+
+## Enum to String and Vice-Versa
+
+- enum to string, use ToString()
+- string to enum, use Enum.Parse(typeof(Target type), strning value)
+
+### Demo
+
+```C#
+  // Enum to String
+    var getRegularAirMail = ShippingMethod.RegularAirMail;
+    Console.WriteLine(getRegularAirMail.GetType()); // enums.shippingmethod type
+    // call ToString()
+    var convertedToString = getRegularAirMail.ToString();
+    Console.WriteLine(convertedToString.GetType()); // Systrem.string
+
+    //string to enum
+    var currValBefore = "Express";
+    Console.WriteLine(currValBefore.GetType()); // System.String type
+    // use Enum.Parse() - args - ShippingMethod which is the type we want to convert the string to, string value.
+    // ShippinhMethod is specified with in typeof operator. Enums.Parse() returns an object, so cast output to ShippingMethod typ
+    var currValAfter = (ShippingMethod)Enum.Parse(typeof(ShippingMethod), currValBefore);
+    Console.WriteLine(currValAfter.GetType()); // Enums.Shippingmethod
+    Console.WriteLine(currValAfter);
+```
+
+---
