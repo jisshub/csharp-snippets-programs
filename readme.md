@@ -477,3 +477,68 @@ namespace Enums
 ```
 
 ---
+
+# reference types and value types
+
+```C#
+ class ValueAndReferenceTypes
+{
+
+    public void ValueTypes()
+    {
+        var num1 = 50;
+        var num2 = num1;
+        num2++;
+        Console.WriteLine($" num1: {num1 }, num2: {num2}");
+        // here a memory locatoin is alloated for num1 ro store value 50,
+        // a copy of value 50 assigned to num2 which resides in different memory location.
+        // later increment num2.
+        // so here change in num2 didnt reflect in num1 since both in diff locations.
+        // value typs r stored in stack.
+    }
+
+    public void ReferenceTypes()
+    {
+        var mark1 = new int[] { 40, 33, 44 };
+        var mark2 = mark1;
+        mark1[0] = 60;
+
+        foreach (
+            int a in mark1
+            )
+        {
+            Console.WriteLine($"array1: {a}");
+        }
+
+        foreach(int a1 in mark2)
+        {
+            Console.WriteLine($"array2: {a1}");
+        }
+
+        // here v change value of index 0 in mark1 array,
+        // that change will happen in mark2 array as well
+
+        // v create an array in heap with an address.
+        // v assign that array to a variable called mark1.
+        // this variable stored in stack.
+        // when v copy mark1 to mark2 variable.
+        // mark2 stored in stack with the same address of mark1.
+        // here both mark1 and mark points to same array in the heap.
+        // thus if change made in either of the mark1 and mark2,
+        // it reflects in other one too.
+    }
+}
+
+```
+
+## Screenshots
+
+### value type
+
+![image](./screenshots/value.png 'image')
+
+### reference type
+
+![image](./screenshots/reference.png 'image')
+
+---
