@@ -542,3 +542,36 @@ namespace Enums
 ![image](./screenshots/reference.png 'image')
 
 ---
+
+# Collections
+
+## dictionaries
+
+```C#
+ class Program
+    {
+        static void Main(string[] args)
+        {
+            // intialize a Dictionary Object, use IDictionary<TKey, TValue>
+            IDictionary<int, string> dict = new Dictionary<int, string>
+            {
+                { 10, "ten" },
+                { 30, "thirty" },
+                { 7, "seven" }
+            };
+
+            // accessing dictionary elements, use foreach
+            // - use KeyValuePair Type
+            foreach (KeyValuePair<int, string> item in dict)
+            {
+                Console.WriteLine($"Key: {item.Key}, Value: {item.Value}");
+            }
+
+            // accesing the individual element using key
+            Console.WriteLine(dict[10]);
+            Console.WriteLine(dict[30]);
+            Console.WriteLine(dict[7]);
+        }
+    }
+
+```
