@@ -543,7 +543,6 @@ namespace Enums
 
 ---
 
-<<<<<<< HEAD
 # Collections
 
 ## dictionaries
@@ -561,41 +560,62 @@ namespace Enums
                 { 7, "seven" }
             };
 
-            // accessing dictionary elements, use foreach
+            // accessing dictionary elements, use foreach()
             // - use KeyValuePair Type
             foreach (KeyValuePair<int, string> item in dict)
             {
                 Console.WriteLine($"Key: {item.Key}, Value: {item.Value}");
             }
 
-            // accesing the individual element using key
+            // accesing values using key
             Console.WriteLine(dict[10]);
             Console.WriteLine(dict[30]);
             Console.WriteLine(dict[7]);
+
+
+            // usng TyGetValue() if not sure about the key
+
+            // declare value1 variable
+
+            string value1;
+
+            if (dict.TryGetValue(10, out value1))
+            {
+                Console.WriteLine(value1);
+            }
+            else if(dict.TryGetValue(30, out value1))
+            {
+                Console.WriteLine(value1);
+            }
+            else
+            {
+                Console.WriteLine("key not found!");
+            }
+
+            // remove elements in dictionary, use Remove(Key)
+            // define a dictionary
+            IDictionary<string, int> covidCases = new Dictionary<string, int>
+            {
+                {"kerala", 5000 },
+                {"tamil nadu", 3000 },
+                { "karnataka", 67000}
+            };
+
+            foreach
+                (KeyValuePair<string, int> states in covidCases)
+            {
+                Console.WriteLine($"state: {states.Key}, cases: {states.Value}");
+            }
+
+            // remove karnataka
+            covidCases.Remove("karnataka");
+
+            // output dictionary
+            Console.WriteLine(covidCases["kerala"]);
+
         }
     }
 
-=======
-## Ternary Operator
-
-```C#
-
-class Conditions
-    {
-        public void CheckAbove()
-        {
-            int x = 20;
-            int y = 50;
-            var result = x > y ? "x greater than y" : "y greater than x";
-            Console.WriteLine(result);
-        }
-        public float SetPrice()
-        {
-            bool isPresent = true;
-            float price = isPresent ? 560.5F : 243.44F;
-            return price;
-        }
-
-    }
->>>>>>> refs/remotes/origin/master
 ```
+
+---
