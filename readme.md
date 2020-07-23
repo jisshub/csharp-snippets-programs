@@ -543,6 +543,7 @@ namespace Enums
 
 ---
 
+<<<<<<< HEAD
 # Collections
 
 ## dictionaries
@@ -574,4 +575,27 @@ namespace Enums
         }
     }
 
+=======
+## Ternary Operator
+
+```C#
+
+class Conditions
+    {
+        public void CheckAbove()
+        {
+            int x = 20;
+            int y = 50;
+            var result = x > y ? "x greater than y" : "y greater than x";
+            Console.WriteLine(result);
+        }
+        public float SetPrice()
+        {
+            bool isPresent = true;
+            float price = isPresent ? 560.5F : 243.44F;
+            return price;
+        }
+
+    }
+>>>>>>> refs/remotes/origin/master
 ```
