@@ -688,8 +688,130 @@ class Program
             {
                 Console.WriteLine(each);
             }
+
+            // copy a number of element from one array to another array
+
+            // declare an array of size 3.
+            int[] destArray = new int[3];
+            // arguments are 1. source array, destination array, no of element to be copied starting from first.
+            Array.Copy(numbers, destArray, 3);
+            foreach( int f in destArray)
+            {
+                Console.WriteLine(f);
+            }
+
+            // example - 2
+            var candidates = new[] {"jissmon", "jose", "jomon", "aju"};
+            string[] candiateCopy = new string[4];
+            Array.Copy(candidates, candiateCopy, 4);
+            foreach(string eachName in candiateCopy)
+            {
+                Console.WriteLine($"Candidate Name:{eachName} ");
+            };
+
+            // Sort method
+            Array.Sort(candidates);
+            foreach(string e in candidates)
+            {
+                Console.WriteLine(e);
+            }
+
+            // example -sort ()
+            var rollnumbers = new[] { 34, 12, 99, 43 };
+            Array.Sort(rollnumbers);
+            foreach(int eachNo in rollnumbers)
+            {
+                Console.WriteLine(eachNo);
+            }
+
+            // Reverse method
+            Array.Reverse(rollnumbers);
+            foreach(int nums in rollnumbers)
+            {
+                Console.WriteLine(nums);
+            }
+
         }
     }
 
 
+```
+
+#### static method and instance method
+
+here methods called on Array class are static , while method called on Array object are instance methods.
+IndexOf, Copy, Clear.. - static methods
+Length - instance method.
+
+---
+
+## List Class
+
+```C#
+
+ class Program
+    {
+        static void Main(string[] args)
+        {
+            //List<T>
+
+            // declare and initlize a list
+            List<int> numbers = new List<int>() { 34, 44, 56, 60 };
+            // add more element to list using Add()
+            numbers.Add(10001);
+            numbers.Add(10002);
+            // lopo thru list
+            foreach(int num in numbers)
+            {
+                Console.WriteLine(num);
+            }
+
+            // AddRange -add a collection of element to the end of list
+            // collection is IEnumerable<T>, where T can be Array type.
+            numbers.AddRange(new int[] { 56, 10, 89 });
+            // here v add an array of integers as collection.
+            foreach(int nums in numbers)
+            {
+                Console.WriteLine(nums);
+            }
+
+            // IndexOF
+            var getIndex = numbers.IndexOf(10);
+            Console.WriteLine(getIndex);
+
+            // Count
+            var getTotal = numbers.Count;
+            Console.WriteLine("Total Element in the List: " + getTotal);
+
+            // Remove() method
+            numbers.Remove(89);
+            foreach(var num in numbers)
+            {
+                Console.WriteLine(num);
+            }
+
+            // Removing same element that occurs multiple times in a list
+            List<int> marks = new List<int> { 40, 30, 45, 40, 20, 40 };
+            // remove element 40, use for loop
+            for (var i = 0; i < marks.Count; i ++)
+            {
+                if(marks[i] == 40)
+                {
+                    marks.Remove(marks[i]);
+                }
+            }
+            Console.WriteLine("After Removing 40");
+            foreach(var j in marks)
+            {
+                Console.WriteLine(j);
+            }
+
+            // Clear the List
+            marks.Clear();
+            Console.WriteLine(marks.Count);
+            numbers.Clear();
+            Console.WriteLine(numbers.Count);
+
+        }
+    }
 ```
