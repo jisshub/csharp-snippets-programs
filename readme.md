@@ -619,3 +619,77 @@ namespace Enums
 ```
 
 ---
+
+## ArrayList
+
+- ArrayList is a non-generic collection of objects whose size is increased dynamically as required.
+
+- can add data of varying types.
+
+## while loops
+
+```C#
+ class WhileLoop
+    {
+        int limit = 10;
+        int i = 5;
+
+        public void Sample()
+        {
+            while (i < limit)
+            {
+                Console.WriteLine(i);
+                i++;
+            }
+        }
+
+        public void SampleTwo()
+        {
+            int b1 = 10;
+            int b2 = 1;
+
+            while(b2 < b1)
+            {
+                if (b2 % 2 == 0)
+                {
+                    Console.WriteLine($"{b2} divisible by 2");
+                }
+                else
+                {
+                    Console.WriteLine($"{b2} not divisible by 2");
+                }
+                b2++;
+            }
+        }
+    }
+```
+
+---
+
+## Arrays
+
+```C#
+class Program
+    {
+        static void Main(string[] args)
+        {
+            // define an integer array
+            var numbers = new[] { 50, 70, 22, 60, 10 };
+            // lenght of array
+            Console.WriteLine(numbers.Length);
+
+            // indexOf
+            Console.WriteLine(Array.IndexOf(numbers, 22));
+            Console.WriteLine(Array.IndexOf(numbers, 10));
+
+            // Clear - cleared elements will be set to 0 in case of integers.
+            Array.Clear(numbers, 3, 2);
+            foreach(int each in numbers)
+            {
+                Console.WriteLine(each);
+            }
+        }
+    }
+
+
+```
