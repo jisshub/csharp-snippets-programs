@@ -376,6 +376,24 @@ namespace Classes.Computers
     Console.WriteLine(verbatimText);
 ```
 
+
+```C# 
+class Program
+    {
+        static void Main(string[] args)
+        {
+            string userName = Console.ReadLine();   
+            // split the word to characters
+            char[] charArray = userName.ToCharArray();
+            // reverse the array
+            Array.Reverse(charArray);
+            // join array > string
+            string output = String.Join(" ", charArray);
+            Console.WriteLine(output);     
+        }
+    }
+
+```
 ---
 
 # Enums
