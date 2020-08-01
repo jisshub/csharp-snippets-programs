@@ -102,4 +102,57 @@ namespace ArrayListExercise
 
 ```
 
+4. Write a program that reads a text file and displays the number of words. Write a program that reads a text file and displays the longest word in the file.
+
+
+**QuesitonONe.cs**
+
+```C#
+class QuestionOne
+    {
+        public void ReadContents(int wordCount= 0)
+        {
+            var filePath = @"C:\tutorials\CSharp-Programming-Beginner\FilesExercise\testdir\test.txt";
+            var contents = File.ReadAllText(filePath);
+            var stringArr = contents.Split(" ");
+            foreach(var eachWord in stringArr)
+            {
+                wordCount += 1;
+            }
+            
+            // find longest word in array
+
+            // store the length first item 
+            int firstLength = stringArr[0].Length;
+            // set index
+            int index = 0;
+            // loop thriu arary
+            for(int i = 1; i < stringArr.Length; i++)
+            {
+                // check first item length less than following one
+                if(stringArr[i].Length > firstLength)
+                {
+                    // re-assign that variable with length of following item
+                    firstLength = stringArr[i].Length;
+                    // change the index
+                    index = i;
+                    }
+            }
+
+            // prints total words - longest word with corresping index.
+            Console.WriteLine($"Total Words: {wordCount} \nLongest Word: {stringArr[index]}");
+        }
+    }
+```
+
+**Program.cs**
+
+```C#
+ static void Main(string[] args)
+        {
+            var p1 = new QuestionOne();
+            p1.ReadContents();
+        }
+```
+
 ---
