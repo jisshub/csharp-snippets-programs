@@ -34,3 +34,38 @@
 
 ---
 
+## exceptions
+
+### ArgumentOutofRange Exception
+
+```C#
+throw new ArgumentOutOfRangeException("code", "count lesser than total items or may be zero or lesser");
+
+```
+
+### ArgumentNullExecption
+
+```C#
+  if (list == null)
+    {
+        throw new ArgumentNullException("argument is null");
+    }
+```
+---
+
+## Call Stack Window
+
+to open,
+
+- first set a breakpoint - run application in debug mode(f5)
+    > Debug > Windows > Call Stack window
+
+- used to view order in which the nethods are excuted unitil it reaches the breakpoint.
+
+![image](./screenshots/callstack.png 'image')
+
+- here, *Line 11*  where executed first
+- *Line 31* next to be fired
+- *Line 44* is the current execution where v specified th breakpoint.
+
+---
